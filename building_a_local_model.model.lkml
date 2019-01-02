@@ -3,6 +3,8 @@ connection: "thelook"
 # include all the views
 include: "*.view"
 
+include: "LookML_local_model_dash.dashboard"
+
 datagroup: building_a_local_model_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
@@ -113,3 +115,5 @@ explore: recent_orders {
     }
   }
 }
+
+explore: currency_demo {}

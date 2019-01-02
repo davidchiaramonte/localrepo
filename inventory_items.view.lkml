@@ -35,6 +35,7 @@ view: inventory_items {
       raw,
       time,
       date,
+      hour_of_day,
       week,
       month,
       quarter,

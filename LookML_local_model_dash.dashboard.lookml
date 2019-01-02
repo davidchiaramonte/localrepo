@@ -376,3 +376,38 @@
     col: 0
     width: 20
     height: 7
+    title: Please Break Me
+    model: building_a_local_model
+    explore: order_items
+    type: table
+    fields: [users.id, users.first_name, users.gender, users.count, users.most_recent_purchase,
+      orders.count, order_items.average_dollars_per_sale, order_items.average_order_value,
+      order_items.total_revenue, inventory_items.is_product_expensive]
+    sorts: [users.count desc]
+    limit: 500
+    dynamic_fields:
+    - table_calculation: divisible_average
+      label: Divisible Average
+      expression: "${order_items.average_dollars_per_sale} / ${order_items.average_order_value}"
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: average2
+      label: Average2
+      expression: "${order_items.average_order_value} / ${order_items.total_revenue}"
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: yesno
+      label: YesNo
+      expression: if(${inventory_items.is_product_expensive}, "Expensive", "Cheap")
+      value_format:
+      value_format_name:
+      _kind_hint: dimension
+      _type_hint: string
+    query_timezone: America/Los_Angeles
+    hidden_fields: [users.gender, inventory_items.is_product_expensive, yesno, users.count,
+      users.most_recent_purchase, orders.count, order_items.average_dollars_per_sale,
+      order_items.average_order_value, order_items.total_revenue]
