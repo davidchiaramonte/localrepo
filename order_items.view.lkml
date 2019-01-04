@@ -39,6 +39,11 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
+  dimension: massive_number {
+    type: number
+    sql: 123456789012345678901234567890 ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
