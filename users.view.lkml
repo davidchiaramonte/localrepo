@@ -1,6 +1,28 @@
 view: users {
   sql_table_name: demo_db.users ;;
 
+  parameter: user_info_type {
+    type: unquoted
+    allowed_value: { label: "State" value: "state" }
+    allowed_value: { label: "Age" value: "age" }
+    allowed_value: { label: "ID" value: "id" }
+    allowed_value: { label: "Last Name" value: "last_name" }
+  }
+
+  dimension: user_info {
+    type: string
+    sql:
+    {% if user_info_type._parameter_value == "state" %}
+     ${state}
+    {% elsif user_info_type._parameter_value == "age" %}
+     ${age}
+    {% elsif user_info_type._parameter_value == "id" %}
+     ${id}
+    {% elsif user_info_type._parameter_value == "last_name" %}
+     ${last_name}
+    {% endif %} ;;
+  }
+
   dimension: id {
     primary_key: yes
     type: number
