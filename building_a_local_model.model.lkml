@@ -3,7 +3,7 @@ connection: "thelook"
 # include all the views
 include: "*.view"
 
-include: "LookML_local_model_dash.dashboard"
+include: "*.dashboard"
 
 datagroup: building_a_local_model_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
