@@ -9,6 +9,7 @@ view: orders {
 
   dimension_group: created {
     type: time
+    group_label: "Test1"
     timeframes: [
       raw,
       time,
@@ -19,6 +20,14 @@ view: orders {
       year
     ]
     sql: ${TABLE}.created_at ;;
+  }
+
+  dimension_group: time_since_created {
+    type: duration
+    sql_start: ${created_raw} ;;
+    sql_end: NOW() ;;
+    intervals: [year,month,day,hour,minute]
+    group_label: "Test2"
   }
 
   dimension: status {
@@ -54,6 +63,15 @@ view: orders {
     filters: {
       field: created_month
       value: "6 Months"
+    }
+  }
+
+  #date filtered measures require dimension group timeframe too i.e. created_date/_month/_hour
+  measure: test_count_filters_45_days {
+    type: count
+    filters: {
+      field: created_date
+      value: "45 days"
     }
   }
 
