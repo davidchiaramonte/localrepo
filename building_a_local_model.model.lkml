@@ -12,6 +12,9 @@ datagroup: building_a_local_model_default_datagroup {
 
 persist_with: building_a_local_model_default_datagroup
 
+#Adding a Model Label can group explores into one, single list
+#label: "Test 1"
+
 explore: events {
   join: users {
     type: left_outer
@@ -34,6 +37,8 @@ explore: inventory_items {
 }
 
 explore: order_items {
+#   Adding a -view_name.field_name doesn't affect joins
+#   fields: [ALL_FIELDS*,-orders.id]
   join: inventory_items {
     type: left_outer
     sql_on: ${order_items.inventory_item_id} = ${inventory_items.id} ;;
@@ -56,6 +61,8 @@ explore: order_items {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
+# Adding a view label with a space has it appear first in the field picker
+#view_label: " Users"
   }
 }
 
