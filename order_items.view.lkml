@@ -1,6 +1,14 @@
 view: order_items {
   sql_table_name: demo_db.order_items ;;
 
+  parameter: date_param {
+    type: date
+  }
+
+  filter: date_filter {
+    type: date
+  }
+
   dimension: id {
     primary_key: yes
     type: number

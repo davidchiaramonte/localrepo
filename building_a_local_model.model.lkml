@@ -1,8 +1,10 @@
+#git commit test part 1
+
 connection: "thelook"
 
 # include all the views
 include: "*.view"
-
+include: "my.explore.lkml"
 include: "*.dashboard"
 
 datagroup: building_a_local_model_default_datagroup {
@@ -15,7 +17,12 @@ persist_with: building_a_local_model_default_datagroup
 #Adding a Model Label can group explores into one, single list
 #label: "Test 1"
 
+explore: my_awesome_explore1 {
+  extends: [my_awesome_explore]
+}
+
 explore: events {
+  fields: [-orders.id]
   join: users {
     type: left_outer
     sql_on: ${events.user_id} = ${users.id} ;;
