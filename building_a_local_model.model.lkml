@@ -14,14 +14,21 @@ datagroup: building_a_local_model_default_datagroup {
 
 persist_with: building_a_local_model_default_datagroup
 
+# access_grant: lock_me_out_fam {
+#   user_attribute: can_see_stuff
+#   allowed_values: ["yes"]
+# }
+
 #Adding a Model Label can group explores into one, single list
 #label: "Test 1"
 
 explore: my_awesome_explore1 {
+  #required_access_grants: [lock_me_out_fam]
   extends: [my_awesome_explore]
 }
 
 explore: events {
+  #required_access_grants: [lock_me_out_fam]
   fields: [-orders.id]
   join: users {
     type: left_outer
@@ -129,5 +136,7 @@ explore: recent_orders {
     }
   }
 }
+
+explore: PDT_novice {}
 
 explore: currency_demo {}
