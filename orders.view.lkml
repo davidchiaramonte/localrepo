@@ -90,6 +90,12 @@ view: orders {
     }
   }
 
+#   measure: required_fields_test {
+#     type: number
+#     sql: ${count}/${user_id} ;;
+#     required_fields: [users.id]
+#   }
+
   measure: percent_of_orders {
     type: number
     sql: (${distinct_order_count_month}/${distinct_order_count_sixmo}) *100;;

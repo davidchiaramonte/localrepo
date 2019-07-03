@@ -9,6 +9,13 @@ view: users {
     allowed_value: { label: "Last Name" value: "last_name" }
   }
 
+  filter: f_me_up_last_name_test {
+    type: string
+    sql: {% condition f_me_up_last_name_test %} ${last_name} {% endcondition %} ;;
+    suggest_explore: users
+    suggest_dimension: last_name
+  }
+
   dimension: user_info {
     type: string
     sql:
@@ -89,6 +96,7 @@ view: users {
   dimension: state {
     type: string
     sql: ${TABLE}.state ;;
+    map_layer_name: us_states
   }
 
   dimension: zip {
