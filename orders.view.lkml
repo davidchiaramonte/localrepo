@@ -101,4 +101,18 @@ view: orders {
     sql: (${distinct_order_count_month}/${distinct_order_count_sixmo}) *100;;
     value_format: "0.00\%"
   }
+
+  measure: count_of_ids_greater_than_900 {
+    type: count
+    filters: {
+      field: id
+      value: ">900"
+    }
+  }
+
+  #Can't filter a measure of type: list
+  measure: list_of_order_ids {
+    type: list
+    list_field: id
+  }
 }
