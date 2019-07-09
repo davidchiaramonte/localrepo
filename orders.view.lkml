@@ -90,6 +90,7 @@ view: orders {
     }
   }
 
+#   Required fields brings in the specified field in the query, but not in the results set.
 #   measure: required_fields_test {
 #     type: number
 #     sql: ${count}/${user_id} ;;
