@@ -102,6 +102,7 @@ view: orders {
     value_format: "0.00\%"
   }
 
+  #You can filter with any Looker filter expression, even numbers
   measure: count_of_ids_greater_than_900 {
     type: count
     filters: {
