@@ -5,6 +5,19 @@ view: orders {
     type: yesno
   }
 
+  parameter: new_param {
+    type: number
+  }
+
+  dimension: new_param_dim {
+    type: string
+    sql: {% if new_param._parameter_value == '800' %}
+    ${id}
+    {% else %}
+    NULL
+    {% endif %};;
+  }
+
   dimension: id {
     primary_key: yes
     type: number

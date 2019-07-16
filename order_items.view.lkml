@@ -53,6 +53,11 @@ view: order_items {
     sql: 123456789012345678901234567890 ;;
   }
 
+  dimension: number_constant {
+    type: number
+    sql: 1234567 ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
