@@ -2,6 +2,8 @@
 
 connection: "thelook"
 
+#change1
+
 # include all the views
 include: "*.view"
 include: "my.explore.lkml"
