@@ -1,5 +1,3 @@
-#git commit test part 1
-
 connection: "thelook"
 
 # include all the views

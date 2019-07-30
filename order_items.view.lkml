@@ -5,6 +5,10 @@ view: order_items {
     type: date
   }
 
+  parameter: number_param {
+    type: number
+  }
+
   filter: date_filter {
     type: date
   }

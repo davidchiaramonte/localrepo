@@ -36,6 +36,11 @@ view: users {
     sql: ${TABLE}.id ;;
   }
 
+  dimension: id_delete_me_plz {
+    type: number
+    sql: ${TABLE}.id ;;
+  }
+
   dimension: age {
     type: number
     sql: ${TABLE}.age ;;
