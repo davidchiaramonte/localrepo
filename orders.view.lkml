@@ -7,6 +7,12 @@ view: orders {
 
   parameter: new_param {
     type: number
+    default_value: "234"
+  }
+
+  dimension: param_value {
+    type: number
+    sql: CAST({{ new_param._parameter_value }} as signed) ;;
   }
 
   dimension: new_param_dim {
